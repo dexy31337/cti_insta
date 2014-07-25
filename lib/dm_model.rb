@@ -1,11 +1,10 @@
 #!/usr/bin/ruby
-
+# encoding: utf-8
 require 'rubygems'
 require 'data_mapper'
 require 'dm-migrations'
-
-DataMapper.setup(:default, 'postgres://insta:qdvvhZ37a@192.168.0.53:5432/instadb')
-DataMapper::Model.raise_on_save_failure = true 
+require '../config/dm_db'
+DataMapper::Model.raise_on_save_failure = true
 
 class Pic
 	include DataMapper::Resource
