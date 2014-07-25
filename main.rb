@@ -6,16 +6,16 @@ require 'open-uri'
 require 'pg'
 require 'thread'
 require 'json'
-require 'rest-client'
+#require 'rest-client'
 require 'haml'
-require 'lib/dm_model'
-require 'lib/picparse'
+require_relative 'lib/dm_model'
+require_relative 'lib/picparse'
 
 #require 'sinatra'
 #set :bind, '0.0.0.0'
 #set :port, 4600
 
-RestClient.log=STDOUT
+#RestClient.log=STDOUT
 
 CrawlJob = Struct.new(:type,:data)
 
@@ -61,7 +61,7 @@ $access_tokens.each do |token|
 end
 
 10.times do |i|
-  Thread.new("parser#{i}") do |p|
+  Thread.new("parser#{i}") do
     loop do
       ht = $job_queue.pop
       if ht.type=='pic2like'

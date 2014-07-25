@@ -3,7 +3,7 @@
 require 'rubygems'
 require 'data_mapper'
 require 'dm-migrations'
-require '../config/dm_db'
+require_relative '../config/dm_db'
 DataMapper::Model.raise_on_save_failure = true
 
 class Pic
